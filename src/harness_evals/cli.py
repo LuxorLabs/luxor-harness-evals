@@ -23,12 +23,20 @@ REQUIRED_ENV = {
 }
 
 
+def _api_key() -> str | None:
+    # LUXOR_API_KEY is also the Luxor Mining Pool key name, so only lx_/tk_ values count.
+    luxor = os.environ.get("LUXOR_API_KEY", "").strip()
+    if luxor.startswith(("lx_", "tk_")):
+        return luxor
+    return os.environ.get("TENKI_API_KEY") or None
+
+
 def _missing_env(harnesses: list[str]) -> list[str]:
     needed = []
     for name in harnesses:
         needed += REQUIRED_ENV[HARNESSES[name].protocol]
     missing = [var for var in dict.fromkeys(needed) if not os.environ.get(var)]
-    if not (os.environ.get("LUXORAI_API_KEY") or os.environ.get("TENKI_API_KEY")):
+    if not _api_key():
         missing.insert(0, "TENKI_API_KEY")
     return missing
 
