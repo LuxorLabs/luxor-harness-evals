@@ -10,7 +10,7 @@ def _clear(monkeypatch):
 
 def test_api_key_required(monkeypatch):
     _clear(monkeypatch)
-    assert _missing_env([]) == ["TENKI_API_KEY"]
+    assert _missing_env([]) == ["LUXOR_API_KEY (or TENKI_API_KEY)"]
 
 
 @pytest.mark.parametrize("key", ["lx_test", "tk_test", "  lx_test  "])
@@ -47,4 +47,4 @@ def test_unusable_luxor_api_key_counts_as_missing(monkeypatch, key):
     _clear(monkeypatch)
     monkeypatch.setenv("LUXOR_API_KEY", key)
     assert _api_key() is None
-    assert _missing_env([]) == ["TENKI_API_KEY"]
+    assert _missing_env([]) == ["LUXOR_API_KEY (or TENKI_API_KEY)"]

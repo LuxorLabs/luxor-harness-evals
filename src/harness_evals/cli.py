@@ -37,7 +37,7 @@ def _missing_env(harnesses: list[str]) -> list[str]:
         needed += REQUIRED_ENV[HARNESSES[name].protocol]
     missing = [var for var in dict.fromkeys(needed) if not os.environ.get(var)]
     if not _api_key():
-        missing.insert(0, "TENKI_API_KEY")
+        missing.insert(0, "LUXOR_API_KEY (or TENKI_API_KEY)")
     return missing
 
 
