@@ -1108,7 +1108,7 @@ wheels = [
 [[package]]
 name = "luxor-harbor"
 version = "0.2.0"
-source = { git = "https://github.com/LuxorLabs/luxor-harbor.git?rev=cf666e5946bcb51107d97ea235bfcb5e7f20c71a#cf666e5946bcb51107d97ea235bfcb5e7f20c71a" }
+source = { git = "https://github.com/LuxorLabs/luxor-harbor.git?tag=v0.2.0#2a876cb8f68c476665122accb5875268b7df329d" }
 dependencies = [
     { name = "harbor" },
     { name = "tenki", extra = ["async"] },
@@ -1134,7 +1134,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "harbor", specifier = ">=0.23.0,<0.24" },
-    { name = "luxor-harbor", git = "https://github.com/LuxorLabs/luxor-harbor.git?rev=cf666e5946bcb51107d97ea235bfcb5e7f20c71a" },
+    { name = "luxor-harbor", git = "https://github.com/LuxorLabs/luxor-harbor.git?tag=v0.2.0" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
     { name = "pyyaml", specifier = ">=6.0.3" },
 ]
