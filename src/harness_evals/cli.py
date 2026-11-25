@@ -1,4 +1,4 @@
-"""evals: run one model across many harnesses on Tenki, then report where it breaks."""
+"""evals: run one model across many harnesses on Luxor, then report where it breaks."""
 
 from __future__ import annotations
 
