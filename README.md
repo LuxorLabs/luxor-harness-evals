@@ -1,27 +1,27 @@
-# tenki-harness-evals
+# luxor-harness-evals
 
 Run one model across many coding-agent harnesses (Claude Code, OpenCode, Goose,
 mini-swe-agent, Qwen Code, Terminus) on a graded benchmark, with every trial in its
-own [Tenki](https://tenki.cloud) VM. Get back a report of where the model works,
+own [Luxor](https://tenki.cloud) VM. Get back a report of where the model works,
 where it fails the task, and where the harness can't talk to your API at all.
 
 Built on [Harbor](https://github.com/harbor-framework/harbor), the framework behind
-Terminal-Bench, and [tenki-harbor](https://github.com/LuxorLabs/tenki-harbor).
+Terminal-Bench, and [luxor-harbor](https://github.com/LuxorLabs/luxor-harbor).
 
 ## Setup
 
-You need [uv](https://docs.astral.sh/uv/), a [Tenki API key](https://tenki.cloud/docs/account/api-keys),
+You need [uv](https://docs.astral.sh/uv/), a [Luxor API key](https://tenki.cloud/docs/account/api-keys),
 and an OpenAI-compatible model endpoint (plus an Anthropic Messages one for Claude Code).
 
 ```bash
-git clone https://github.com/LuxorLabs/tenki-harness-evals.git
-cd tenki-harness-evals
+git clone https://github.com/LuxorLabs/luxor-harness-evals.git
+cd luxor-harness-evals
 uv sync
-cp .env.example .env            # fill in your Tenki key and model endpoint
-uv run tenki-harbor prepare     # once: put the printed snapshot id in .env
+cp .env.example .env            # fill in your Luxor key and model endpoint
+uv run luxor-harbor prepare     # once: put the printed snapshot id in .env
 ```
 
-`prepare` builds a Tenki snapshot with Docker installed, which saves about 10 s on
+`prepare` builds a Luxor snapshot with Docker installed, which saves about 10 s on
 every trial. It's optional.
 
 ## Run
@@ -70,7 +70,7 @@ API errors are grouped by cause, with an example trial to open in `harbor view`.
 ### Example
 
 One model behind an OpenAI-compatible endpoint, 6 harnesses × 10 Terminal-Bench 2.0
-tasks, 60 trials on Tenki in 57 minutes:
+tasks, 60 trials on Luxor in 57 minutes:
 
 | Harness | Pass rate | Passed | Failed | API errors | Timeouts |
 |---|---|---|---|---|---|
@@ -113,12 +113,12 @@ when differences are small; single runs of agentic tasks are noisy.
 
 ## Cleanup and cost
 
-Each trial is one Tenki VM sized to the task, deleted when the trial ends. If a
+Each trial is one Luxor VM sized to the task, deleted when the trial ends. If a
 run is killed, its VMs stop on their own after two hours, or immediately with:
 
 ```bash
-uv run tenki-harbor sessions    # list Harbor VMs still running
-uv run tenki-harbor cleanup     # terminate them
+uv run luxor-harbor sessions    # list Harbor VMs still running
+uv run luxor-harbor cleanup     # terminate them
 ```
 
 ## Development

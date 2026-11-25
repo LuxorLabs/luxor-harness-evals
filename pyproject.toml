@@ -1,7 +1,7 @@
 [project]
-name = "tenki-harness-evals"
+name = "luxor-harness-evals"
 version = "0.1.0"
-description = "Run one model across many coding-agent harnesses on Tenki, and see where it breaks"
+description = "Run one model across many coding-agent harnesses on Luxor, and see where it breaks"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "Apache-2.0"
@@ -9,11 +9,11 @@ dependencies = [
     "harbor>=0.23.0,<0.24",
     "python-dotenv>=1.2.4",
     "pyyaml>=6.0.3",
-    "tenki-harbor",
+    "luxor-harbor",
 ]
 
 [tool.uv.sources]
-tenki-harbor = { git = "https://github.com/LuxorLabs/tenki-harbor.git", rev = "cbe59e0b65c08cdf47ea6d4c5ffafc33ea2b5c1e" }
+luxor-harbor = { git = "https://github.com/LuxorLabs/luxor-harbor.git", rev = "cf666e5946bcb51107d97ea235bfcb5e7f20c71a" }
 
 [project.scripts]
 evals = "harness_evals.cli:main"

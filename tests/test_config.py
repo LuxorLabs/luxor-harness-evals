@@ -9,7 +9,7 @@ MODEL = "example-org/coder-model"
 def test_config_is_a_valid_harbor_job():
     config = build_job_config(RunSpec(model=MODEL, harnesses=["terminus-2", "claude-code"]))
     job = JobConfig.model_validate(config)
-    assert job.environment.import_path == "tenki_harbor:TenkiEnvironment"
+    assert job.environment.import_path == "luxor_harbor:LuxorEnvironment"
     assert job.datasets[0].name == "terminal-bench"
     assert job.datasets[0].version == "2.0"
     assert job.datasets[0].n_tasks == 10

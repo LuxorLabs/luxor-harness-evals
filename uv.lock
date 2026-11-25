@@ -1106,6 +1106,46 @@ wheels = [
 ]
 
 [[package]]
+name = "luxor-harbor"
+version = "0.2.0"
+source = { git = "https://github.com/LuxorLabs/luxor-harbor.git?rev=cf666e5946bcb51107d97ea235bfcb5e7f20c71a#cf666e5946bcb51107d97ea235bfcb5e7f20c71a" }
+dependencies = [
+    { name = "harbor" },
+    { name = "tenki", extra = ["async"] },
+]
+
+[[package]]
+name = "luxor-harness-evals"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "harbor" },
+    { name = "luxor-harbor" },
+    { name = "python-dotenv" },
+    { name = "pyyaml" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "harbor", specifier = ">=0.23.0,<0.24" },
+    { name = "luxor-harbor", git = "https://github.com/LuxorLabs/luxor-harbor.git?rev=cf666e5946bcb51107d97ea235bfcb5e7f20c71a" },
+    { name = "python-dotenv", specifier = ">=1.2.4" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=8" },
+    { name = "ruff", specifier = ">=0.6" },
+]
+
+[[package]]
 name = "markdown-it-py"
 version = "4.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2205,46 +2245,6 @@ wheels = [
 [package.optional-dependencies]
 async = [
     { name = "websockets" },
-]
-
-[[package]]
-name = "tenki-harbor"
-version = "0.1.0"
-source = { git = "https://github.com/LuxorLabs/tenki-harbor.git?rev=cbe59e0b65c08cdf47ea6d4c5ffafc33ea2b5c1e#cbe59e0b65c08cdf47ea6d4c5ffafc33ea2b5c1e" }
-dependencies = [
-    { name = "harbor" },
-    { name = "tenki", extra = ["async"] },
-]
-
-[[package]]
-name = "tenki-harness-evals"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "harbor" },
-    { name = "python-dotenv" },
-    { name = "pyyaml" },
-    { name = "tenki-harbor" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "harbor", specifier = ">=0.23.0,<0.24" },
-    { name = "python-dotenv", specifier = ">=1.2.4" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
-    { name = "tenki-harbor", git = "https://github.com/LuxorLabs/tenki-harbor.git?rev=cbe59e0b65c08cdf47ea6d4c5ffafc33ea2b5c1e" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pytest", specifier = ">=8" },
-    { name = "ruff", specifier = ">=0.6" },
 ]
 
 [[package]]

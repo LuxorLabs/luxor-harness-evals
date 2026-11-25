@@ -1,4 +1,4 @@
-"""Build a Harbor job config: one model, several harnesses, one benchmark, on Tenki."""
+"""Build a Harbor job config: one model, several harnesses, one benchmark, on Luxor."""
 
 import re
 from dataclasses import dataclass, field
@@ -43,7 +43,7 @@ def build_job_config(spec: RunSpec) -> dict:
         "jobs_dir": spec.jobs_dir,
         "n_attempts": spec.attempts,
         "n_concurrent_trials": spec.concurrency,
-        "environment": {"import_path": "tenki_harbor:TenkiEnvironment", "delete": True},
+        "environment": {"import_path": "luxor_harbor:LuxorEnvironment", "delete": True},
         "agents": [agent_config(HARNESSES[h], spec.model) for h in spec.harnesses],
         "datasets": [dataset],
     }
